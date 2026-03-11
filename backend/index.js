@@ -48,7 +48,7 @@ server.get("/",(req,res)=>{
 })
 
 // Health check endpoint — K8s readiness/liveness probe ke liye
-app.get("/api/health", (req, res) => {
+server.get("/api/health", (req, res) => {
   res.status(200).json({
     status: "healthy",
     timestamp: new Date().toISOString()
