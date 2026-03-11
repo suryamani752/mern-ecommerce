@@ -1,7 +1,7 @@
 FROM node:18-alpine AS deps
 WORKDIR /app
 
-COPY package*.json ./
+COPY backend/package*.json ./
 RUN npm ci --omit=dev
 
 FROM node:18-alpine AS runner
@@ -14,5 +14,5 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY backend/ ./backend/
 
 USER appuser
-EXPOSE 4000
+EXPOSE 8000
 CMD ["node", "backend/index.js"]
