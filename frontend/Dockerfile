@@ -5,7 +5,7 @@ ENV NODE_ENV=production
 ENV REACT_APP_BASE_URL=""
 
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --legacy-peer-deps
 
 COPY public/ ./public/
 COPY src/ ./src/
